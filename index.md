@@ -18,7 +18,7 @@ This also resolves the issue in https://github.com/Pylons/webob/issues/256.
 
 Having resolved many of the structural and design issues in working through the `Accept-Language` header, the rewrite for the handling of the other three handlers did not take nearly as long, but unfortunately the summer is short, and there was not enough time within the GSoC period to merge; however, the handling for all four headers are complete, functional, documented and tested &mdash; they all now conform to RFC 7231. This is the PR containing the work on the four headers after the merged PR:
 
-https://github.com/Pylons/webob/pull/337
+https://github.com/Pylons/webob/pull/338
 
 There remain quite a few issues on which I would like to work with my mentors and the Pylons Project community to resolve:
 
