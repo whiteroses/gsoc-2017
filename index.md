@@ -16,21 +16,21 @@ https://github.com/Pylons/webob/pull/335
 
 This also resolves the issue in https://github.com/Pylons/webob/issues/256.
 
-Having resolved many of the structural and design issues in working through the `Accept-Language` header, the rewrite for the handling of the other three handlers did not take nearly as long, but unfortunately the summer is short, and there was not enough time within the GSoC period to merge; however, the handling for all four headers are complete, functional, documented and tested &mdash; they all now conform to RFC 7231. This is the PR containing the work on the four headers after the merged PR:
+Having made decisions on many of the structural and design issues in working through the `Accept-Language` header, the rewrite for the handling of the other three headers did not take nearly as long &mdash; but unfortunately the summer is short, and there was not enough time within the GSoC period to merge. However, the handling for all four headers are complete, functional, documented and tested &mdash; they all now conform to RFC 7231. This is the PR containing the work on the four headers after the merged PR:
 
 https://github.com/Pylons/webob/pull/338
 
 There remain quite a few issues on which I would like to work with my mentors and the Pylons Project community to resolve:
 
 * My mentors would like to see the documentation for the header subclasses be moved to the base class, to present a single shared API.
-* Work with my mentors to resolve any issues that come up with the not-yet-merged pull request so that it can be merged, and help deprecate the methods that need to be deprecated.
+* I will work with my mentors to resolve any issues that come up with the not-yet-merged pull request so that it can be merged, and help deprecate the methods that need to be deprecated.
 * I have updated the API documentation for the header classes, but it is on the [`webob` api page](https://webob.readthedocs.io/en/stable/api/webob.html), and not a `webob.acceptparse` page, which seems strange. The Accept\* headers' request properties are auto-documented on the [`request` api page](https://webob.readthedocs.io/en/stable/api/request.html), but I should perhaps rewrite the request properties' docstrings to make them fit in with the other docstrings on that page better. And the "Accept-\* headers" section on the [reference page](https://webob.readthedocs.io/en/stable/reference.html) is out-of-date, and describes methods we have decided to deprecate, so it needs to be updated.
 * There is a significant amount of code that is repeated across the four headers, but heavily re-using code across the four headers was one of the main reasons why so many bugs were hidden. It may take some consideration to see which code we can re-use, and which would be better left alone so they are easier to read and understand.
-* Help Pyramid switch away from the methods being deprecated in WebOb in favour of the new RFC-compliant ones, and deal with any backward incompatibility issues.
+* Pyramid will need to switch away from the methods being deprecated in WebOb in favour of the new RFC-compliant ones, and deal with any backward incompatibility issues.
 * The longstanding issue of unpredictable `Accept` handling, mentioned in the abstract of the proposal, was proposed as an optional task that we could tackle if there was enough time remaining in GSoC; unfortunately there was not, but I would like to see if I can help tackle it sometime after GSoC.
 * There is [a minor documentation issue with Sphinx](https://github.com/Pylons/pylons-sphinx-themes/issues/7) that came up while we were working on the `Accept-Language` header.
 * After a little break, I would like to review acceptparse.py with fresh eyes, and see if there is any code I can refactor or documentation I can improve. As I review, I can also help draw up a list of changes for the changelog and any release announcements.
-* We discussed the headers and RFCs over a few long GitHub issue threads, and my understanding of the headers and RFCs has developed since then, so I would like to go back to update them, as they may be useful to others (while researching on how to tackle implementing these headers, I would often find our (very new) GitHub threads near the top of search results!)
+* We discussed the headers and RFCs over a few long GitHub issue threads, and as my understanding of the headers and RFCs has developed since then, I would like to go back to update them, as they may be useful to others. (While researching on how to tackle implementing these headers, I would often find our (very new) GitHub threads near the top of search results!)
 * I have also been asked by my mentor Bert to create some documentation explaining the thinking and reasoning behind the implementation, similar to the blog posts I have written, both for people looking to see what they can do with WebOb, and as a resource for other implementers.
 
 
